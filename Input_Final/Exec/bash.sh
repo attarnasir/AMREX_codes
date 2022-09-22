@@ -6,4 +6,4 @@ g++ -o Replace Replace.cpp
 
 ./Replace
 
-./main3d.gnu.ex input1.in
+./main3d.gnu.ex input2.in

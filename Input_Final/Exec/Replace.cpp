@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include<bits/stdc++.h>
 
 using namespace std;
 
@@ -23,9 +24,31 @@ void find_and_replace(std::string& file_contents,
 }
 
 int main()
-{
-    ifstream filein("input.in");
-    ofstream fileout("input1.in");
+{   
+    string s1,s2;
+    ifstream ifile1("input.in");
+    ifstream ifile2("filling.in");
+    ofstream ofile("input1.in");
+    
+    while(getline(ifile1,s1)){
+    	
+    	ofile<<s1;
+    	ofile<<endl;
+    }
+    
+    while(getline(ifile2,s2)){
+    	
+    	ofile<<s2;
+    	ofile<<endl;
+    }
+    
+    ifile1.close();
+    ifile2.close();
+    ofile.close();
+   
+    
+    ifstream filein("input1.in");
+    ofstream fileout("input2.in");
     std::string contents = getfile(filein);
     find_and_replace(contents, "{", "(");
     find_and_replace(contents, "}", ")");
@@ -34,21 +57,7 @@ int main()
     filein.close();
     fileout.close();
 
-    // string line;
-    // ifstream ini_file("input1.in"); 
-    // ofstream out_file("input.in");
-    // if (ini_file && out_file) {
-  
-    //     while (getline(ini_file, line)) {
-    //         out_file << line << "\n";
-    //     }
-    // }
-    // else {
-    //     printf("Cannot read File");
-    // }
-    // // Closing file
-    // ini_file.close();
-    // out_file.close();
+    
     
    
 }
