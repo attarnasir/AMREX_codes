@@ -1,6 +1,0 @@
-n_cell = 100
-nsteps = 100
-dt = 10;
-val = (20.01, 10.08);
-title = Three;
-null = 23.3 12.8
