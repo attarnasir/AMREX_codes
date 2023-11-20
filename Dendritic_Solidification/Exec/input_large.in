@@ -20,8 +20,8 @@ RESTART = 0;
 numworkers = 2;
 ## Component and Phase names
 # COMPONENTS = (Al,Cu,B);
-COMPONENTS = {Al, Zn};
-PHASES = {alpha, beta, liquid};
+COMPONENTS = (Al, Zn);
+PHASES = (alpha, beta, liquid);
 ##Material properties
 ##GAMMA=(12, 13, 14, 23, 24...)
 GAMMA = (0.1,0.1,0.1);
@@ -66,7 +66,7 @@ T = 857;
 ##TRACK_PROGRESS: interval of writing out the progress of the simulation to stdout. 
 WRITEFORMAT = ASCII;
 WRITEHDF5 = 1;
-TRACK_PROGRESS = 50000;
+TRACK_PROGRESS = 100000;
 ##Model-specific parameters: Grand-potential model
 ##Phase-field parameters; epsilon:interface width; it is not the gradient energy coefficient
 epsilon = 4e-8;
