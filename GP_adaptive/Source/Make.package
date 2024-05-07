@@ -1,0 +1,5 @@
+CEXE_sources += AmrCoreGP.cpp 
+CEXE_sources += main.cpp 
+
+CEXE_headers += AmrCoreGP.h 
+CEXE_headers += myfunc.h 

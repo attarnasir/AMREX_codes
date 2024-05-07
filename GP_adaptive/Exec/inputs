@@ -1,0 +1,137 @@
+# *****************************************************************
+# Run until nsteps == max_step or time == stop_time, 
+#     whichever comes first
+# *****************************************************************
+max_step  = 10000
+stop_time = 2.0
+
+# *****************************************************************
+# Are we restarting from an existing checkpoint file?
+# *****************************************************************
+#amr.restart  = chk00060 # restart from this checkpoint file
+
+# *****************************************************************
+# Problem size and geometry
+# *****************************************************************
+geometry.prob_lo     =  0.0  0.0  0.0 
+geometry.prob_hi     =  4.0e-6  4.0e-6  0.125
+geometry.is_periodic =  2    2  
+
+# *****************************************************************
+# VERBOSITY
+# *****************************************************************
+
+# *****************************************************************
+# Resolution and refinement
+# *****************************************************************
+amr.n_cell          = 40 40 
+amr.max_grid_size   = 40 40 
+amr.max_level       = 1       # maximum level number allowed -- 
+                              # number of levels = max_level + 1
+
+amr.ref_ratio       = 2 2   # refinement ratio between levels
+
+# *****************************************************************
+# Control of grid creation
+# *****************************************************************
+# Blocking factor for grid creation in each dimension --
+#   this ensures that every grid is coarsenable by a factor of 8 --
+#   this is mostly relevant for multigrid performance
+amr.blocking_factor_x = 8
+amr.blocking_factor_y = 8
+
+
+amr.regrid_int      = 5       # how often to regrid
+
+# *****************************************************************
+# Time step control
+# *****************************************************************
+
+# *****************************************************************
+# Should we reflux at coarse-fine boundaries?
+# *****************************************************************
+
+# *****************************************************************
+# Tagging -  if phi > 1.01 at level 0, then refine 
+#            if phi > 1.1  at level 1, then refine 
+#            if phi > 1.5  at level 2, then refine 
+# *****************************************************************
+adv.phierr = 0.2
+
+# *****************************************************************
+# Plotfile name and frequency
+# *****************************************************************
+amr.plot_file  = plt    # root name of plot file
+amr.plot_int   =  500    # number of timesteps between plot files
+                        # if negative then no plot files will be written
+
+# *****************************************************************
+# Checkpoint name and frequency
+# *****************************************************************
+
+# *****************************************************************
+# Filling
+# *****************************************************************
+
+
+DELTA_t = 6e-7
+##Number of phases and composition
+NUMPHASES = 2
+NUMCOMPONENTS = 2
+#Running and saving information
+
+#numworkers = 4;
+## Component and Phase names
+# COMPONENTS = {Al,Cu,B};
+#COMPONENTS = (Al, Zn);
+#PHASES = (alpha, liquid);
+##Material properties
+##GAMMA={12, 13, 14, 23, 24...}
+GAMMA = 0.1
+# Diffusivity = {Diagonal:0/1, phase, 11,22,33, 12, 13, 23...};
+#DIFFUSIVITY = (1, 0, 0);
+#DIFFUSIVITY = (1, 1, 1e-9);
+##Gas constant and molar volume
+
+V = 10e-6
+
+##Type of simulation
+
+T = 866
+
+##Model-specific parameters: Grand-potential model
+##Phase-field parameters; epsilon:interface width; it is not the gradient energy coefficient
+epsilon = 2e-7
+
+##Anisotropy functions
+##Anisotropy mode, FUNCTION_ANISOTROPY=0 is isotropic
+#Function_anisotropy = 1;
+#Anisotropy_type = 4; 
+#dab = (0.01);
+#Rotation_matrix = {0, 1, Euler_x(ang), Euler_y(ang), Euler_z(ang)};
+#Rotation_matrix = (0, 1, 0, 0, 45);
+##Potential function
+
+#Equilibrium_temperature = 870;
+#Filling_temperature = 866;
+
+#Function_F = 4;
+
+#ceq = (0, 0, 0.926);
+#ceq = (0, 1, 0.817);
+#ceq = (1, 1, 0.817);
+#ceq = (1, 0, 0.817);
+#cfill = (0, 0, 0.926);
+#cfill = (0, 1, 0.817);
+#cfill = (1, 1, 0.817);
+#cfill = (1, 0, 0.817);
+#c_guess = (0, 0, 0.92133);
+#c_guess = (0, 1, 0.80354);
+#c_guess = (1, 1, 0.80354);
+#c_guess = (1, 0, 0.80354);
+
+#num_thermo_phases = 2;
+#tdb_phases = (FCC_A1, LIQUID);
+#phase_map = (FCC_A1, LIQUID);
+
+#FILLCYLINDER = (0,40,40,0,0,5);
